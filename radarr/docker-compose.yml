@@ -1,0 +1,15 @@
+services:
+  radarr:
+    image: lscr.io/linuxserver/radarr:latest
+    container_name: radarr
+    restart: unless-stopped
+    volumes:
+      - /Users/justin/media-server/radarr/config:/config
+      - /Volumes/NAS/media/movies:/movies
+      - /Volumes/NAS/media/tv:/tv
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Denver
+    ports:
+      - 7878:7878
